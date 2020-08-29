@@ -102,6 +102,36 @@ namespace Alpaca.Markets
                     cancellationToken);
 
         /// <inheritdoc />
+        public async Task<IReadOnlyList<ITicker>> ListTickersAsync(
+            TickerType? type = null,
+            CancellationToken cancellationToken = default)
+        {
+            var results = new List<ITicker>();
+
+            var page = 1U;
+            JsonPolygonTickersResponse lastResponse;
+            do
+            {
+                var request = new TickersRequest()
+                {
+                    Type = type,
+                    Page = page
+                };
+                
+                lastResponse = await _httpClient.GetAsync
+                    <JsonPolygonTickersResponse, JsonPolygonTickersResponse>(
+                        request.GetUriBuilder(this), cancellationToken)
+                    .ConfigureAwait(false);
+
+                results.AddRange(lastResponse.Items);
+                ++page;
+            }
+            while (lastResponse.Page * lastResponse.PerPage < lastResponse.Count);
+
+            return results;
+        }
+
+        /// <inheritdoc />
         public Task<ILastTrade> GetLastTradeAsync(
             String symbol,
             CancellationToken cancellationToken = default) =>
