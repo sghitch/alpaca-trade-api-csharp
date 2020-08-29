@@ -78,8 +78,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
-    <PackageReference Include="System.Diagnostics.TraceSource">
-      <Version>4.3.0</Version>
+    <PackageReference Include="System.Diagnostics.TraceSource" Version="4.3.0">
     </PackageReference>
   </ItemGroup>
 
