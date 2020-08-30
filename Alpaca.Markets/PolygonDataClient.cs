@@ -146,6 +146,13 @@ namespace Alpaca.Markets
                 GetUriBuilder($"v1/last_quote/stocks/{symbol}"), cancellationToken);
 
         /// <inheritdoc />
+        public Task<ITickerDetails> GetTickerDetialsAsync(
+            String symbol,
+            CancellationToken cancellationToken = default) =>
+            _httpClient.GetAsync<ITickerDetails, JsonTickerDetails>(
+                GetUriBuilder($"v1/meta/symbols/{symbol}/company"), cancellationToken);
+
+        /// <inheritdoc />
         public async Task<IReadOnlyDictionary<Int64, String>> GetConditionMapAsync(
             TickType tickType = TickType.Trades,
             CancellationToken cancellationToken = default)
