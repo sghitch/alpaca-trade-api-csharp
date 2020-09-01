@@ -4,10 +4,15 @@ using System.Collections.Generic;
 namespace Alpaca.Markets
 {
     /// <summary>
-    /// The detailed information for a ticker
+    /// The detailed information for a company
     /// </summary>
-    public interface ITickerDetails
+    public interface ICompanyDetails
     {
+        /// <summary>
+        /// Listing date
+        /// </summary>
+        public DateTime? ListDate { get; }
+
         /// <summary>
         /// CIK
         /// </summary>

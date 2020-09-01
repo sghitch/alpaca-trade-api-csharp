@@ -9,8 +9,11 @@ namespace Alpaca.Markets
     [SuppressMessage(
     "Microsoft.Performance", "CA1812:Avoid uninstantiated internal classes",
     Justification = "Object instances of this class will be created by Newtonsoft.JSON library.")]
-    internal sealed class JsonTickerDetails : ITicker, ITickerDetails
+    internal sealed class JsonCompanyDetails : ITicker, ICompanyDetails
     {
+        [JsonProperty(PropertyName = "listdate", Required = Required.Default)]
+        public DateTime? ListDate { get; set; }
+
         [JsonProperty(PropertyName = "cik", Required = Required.Default)]
         public String CIK { get; set; } = String.Empty;
 
