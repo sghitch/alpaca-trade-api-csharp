@@ -208,6 +208,12 @@ namespace Alpaca.Markets
         /// Alpha Index
         /// </summary>
         [EnumMember(Value = "ALPHAINDEX")]
-        AlphaIndex
+        AlphaIndex,
+
+        /// <summary>
+        /// Ordinary Shares
+        /// </summary>
+        [EnumMember(Value = "Ordinary Shares")]
+        Ordinary
     }
 }
