@@ -8,7 +8,7 @@ namespace Alpaca.Markets
     /// <summary>
     /// Period units for portfolio history in the Alpaca REST API.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(SymbolTickerTypeConverter))]
     [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public enum TickerType
     {
@@ -208,12 +208,6 @@ namespace Alpaca.Markets
         /// Alpha Index
         /// </summary>
         [EnumMember(Value = "ALPHAINDEX")]
-        AlphaIndex,
-
-        /// <summary>
-        /// Ordinary Shares
-        /// </summary>
-        [EnumMember(Value = "Ordinary Shares")]
-        Ordinary
+        AlphaIndex
     }
 }
