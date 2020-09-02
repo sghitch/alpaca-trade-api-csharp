@@ -14,20 +14,20 @@ namespace Alpaca.Markets
         [JsonProperty(PropertyName = "symbol", Required = Required.Always)]
         public String Symbol { get; set; } = String.Empty;
 
-        [JsonProperty(PropertyName = "name", Required = Required.Always)]
+        [JsonProperty(PropertyName = "name", Required = Required.Default)]
         public String Name { get; set; } = String.Empty;
 
-        [JsonProperty(PropertyName = "type", Required = Required.Always)]
-        public TickerType Type { get; set; }
+        [JsonProperty(PropertyName = "type", Required = Required.Default)]
+        public TickerType? Type { get; set; }
 
-        [JsonProperty(PropertyName = "updated", Required = Required.Always)]
-        public DateTime UpdatedUTC { get; set; }
+        [JsonProperty(PropertyName = "updated", Required = Required.Default)]
+        public DateTime? UpdatedUTC { get; set; }
 
         [JsonProperty(PropertyName = "isOTC", Required = Required.Always)]
         public bool IsOTC { get; set; }
 
-        [JsonProperty(PropertyName = "primaryExchange", Required = Required.Always)]
-        public UInt64 PrimaryExchange { get; set; }
+        [JsonProperty(PropertyName = "primaryExchange", Required = Required.Default)]
+        public UInt64? PrimaryExchange { get; set; }
 
         [JsonProperty(PropertyName = "exchSym", Required = Required.Default)]
         public String ExchangeSymbol { get; set; } = String.Empty;

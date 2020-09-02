@@ -21,12 +21,12 @@ namespace Alpaca.Markets
         /// <summary>
         /// Type
         /// </summary>
-        public TickerType Type { get; }
+        public TickerType? Type { get; }
 
         /// <summary>
         /// Updated UTC
         /// </summary>
-        public DateTime UpdatedUTC { get; }
+        public DateTime? UpdatedUTC { get; }
 
         /// <summary>
         /// Is OTC
@@ -36,7 +36,7 @@ namespace Alpaca.Markets
         /// <summary>
         /// Primary Exchange
         /// </summary>
-        public UInt64 PrimaryExchange { get; }
+        public UInt64? PrimaryExchange { get; }
 
         /// <summary>
         /// Exchange Symbol

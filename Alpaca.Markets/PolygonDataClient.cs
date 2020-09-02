@@ -153,11 +153,18 @@ namespace Alpaca.Markets
                 GetUriBuilder($"v1/meta/symbols/{symbol}/company"), cancellationToken);
 
         /// <inheritdoc />
-        public Task<ISymbolDetails> GetSymbolDetailsAsync(
+        public async Task<ISymbolDetails> GetSymbolDetailsAsync(
             String symbol,
-            CancellationToken cancellationToken = default) =>
-            _httpClient.GetAsync<ISymbolDetails, JsonSymbolDetails>(
-                GetUriBuilder($"v1/meta/symbols/{symbol}"), cancellationToken);
+            CancellationToken cancellationToken = default)
+        {
+            var response = await _httpClient.GetAsync<JsonSymbolResponse, JsonSymbolResponse>(
+               GetUriBuilder($"v1/meta/symbols/{symbol}"), cancellationToken)
+                .ConfigureAwait(false);
+
+#pragma warning disable CS8603 // Possible null reference return.
+            return response.Details;
+#pragma warning restore CS8603 // Possible null reference return.
+        }
 
         /// <inheritdoc />
         public async Task<IReadOnlyDictionary<Int64, String>> GetConditionMapAsync(
