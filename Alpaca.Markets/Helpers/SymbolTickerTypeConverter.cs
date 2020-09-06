@@ -34,6 +34,7 @@ namespace Alpaca.Markets
                             return TickerType.PFD;
                         case "ET":
                         case "et":
+                        case "etp":
                             return TickerType.ETP;
                         default:
                             return TickerType.Other;
