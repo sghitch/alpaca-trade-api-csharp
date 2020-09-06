@@ -57,7 +57,6 @@ namespace Alpaca.Markets
         public String ExchangeSymbol { get; set; } = String.Empty;
 
         [JsonProperty(PropertyName = "type", Required = Required.Default)]
-        [JsonConverter(typeof(StringEnumConverter))]
         public TickerType? Type { get; set; }
 
         [JsonProperty(PropertyName = "similar", Required = Required.Default)]

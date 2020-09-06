@@ -27,8 +27,12 @@ namespace Alpaca.Markets
                     switch (s)
                     {
                         case "Common Stock":
-                            return TickerType.Common;
                         case "Ordinary Shares":
+                        case "Ordinary Shares - Class A":
+                            return TickerType.Common;
+                        case "PS":
+                            return TickerType.PFD;
+                        default:
                             return TickerType.Other;
                     }
                 }
